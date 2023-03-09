@@ -7,7 +7,7 @@
 		".devcontainer/initializeCommand"
 	],
 	"postCreateCommand": ".devcontainer/postCreateCommand",
-	"workspaceFolder": "/workspaces/template_data_repo",
+	"workspaceFolder": "/workspaces/climate_mrp_polling",
 	"extensions": [
 		"ms-vscode.test-adapter-converter",
 		"bungcip.better-toml",
