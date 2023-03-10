@@ -3,6 +3,6 @@ title: "Download climate_mrp_polling"
 layout: datasets/front
 ---
 
-# Dataset download site title
+# Climate MRP Datasets
 
-Here is some text underneath that.
+MRP polling is generally released as constituency data. These are (generally) smaller than local authorities, and so can be rolled up.
