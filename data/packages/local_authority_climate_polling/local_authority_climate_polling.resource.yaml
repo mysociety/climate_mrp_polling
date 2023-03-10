@@ -1,6 +1,5 @@
 title: Local authority climate polling
-description:  |
-  Reformatted MRP pollings for local authorities areas
+description: "Reformatted MRP pollings for local authorities areas\n"
 custom:
   row_count: 42020
 path: local_authority_climate_polling.csv

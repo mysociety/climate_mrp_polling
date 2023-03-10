@@ -1,6 +1,6 @@
 title: Constituency to local authority overlap
-description: |
-  Percentage overlap of constituencies and local authorities (both area and population)
+description: "Percentage overlap of constituencies and local authorities (both area\
+  \ and population)\n"
 custom:
   row_count: 1311
 path: percentage_overlap_2023_councils_both.csv
