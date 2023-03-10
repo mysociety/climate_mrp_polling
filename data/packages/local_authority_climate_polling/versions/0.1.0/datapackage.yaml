@@ -1,0 +1,38 @@
+name: local_authority_climate_polling
+title: Local authority climate polling
+description: "Reformatted MRP pollings for local authorities areas\n"
+version: 0.1.0
+contributors:
+- title: mySociety
+  path: https://mysociety.org
+  role: author
+licenses:
+- name: notspecified
+  title: Not specified
+custom:
+  build:
+  tests:
+  - test_local_authority_climate_polling
+  dataset_order: 0
+  download_options:
+    gate: default
+    survey: default
+    header_text: default
+  formats:
+    csv: true
+    parquet: true
+  composite:
+    xlsx:
+      include: all
+      exclude: none
+      render: true
+    sqlite:
+      include: all
+      exclude: none
+      render: true
+    json:
+      include: all
+      exclude: none
+      render: true
+  change_log:
+    0.1.0: ''

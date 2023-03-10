@@ -1,0 +1,39 @@
+title: Constituency to local authority overlap
+description: |
+  Percentage overlap of constituencies and local authorities (both area and population)
+custom:
+  row_count: 1311
+path: percentage_overlap_2023_councils_both.csv
+name: percentage_overlap_2023_councils_both
+profile: tabular-data-resource
+scheme: file
+format: csv
+hashing: md5
+encoding: utf-8
+schema:
+  fields:
+  - name: PCON21CD
+    type: string
+    description: Constituency code
+    constraints:
+      unique: false
+    example: E14000530
+  - name: local-authority-code
+    type: string
+    description: Local authority code (3/4 letter)
+    constraints:
+      unique: false
+    example: ABC
+  - name: percentage_overlap_area
+    type: number
+    description: Percentage overlap of area
+    constraints:
+      unique: false
+    example: 0.0
+  - name: percentage_overlap_pop
+    type: number
+    description: Percentage overlap of population
+    constraints:
+      unique: false
+    example: 0.0
+hash: 670701fe6c967a54e8c29a5eb8ed1494

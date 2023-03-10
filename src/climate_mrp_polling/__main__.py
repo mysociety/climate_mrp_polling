@@ -1,4 +1,6 @@
 import rich_click as click
+from .create_overlap_information import run_conversion
+from .convert_specific_polling import convert_all
 
 
 @click.group()
@@ -11,8 +13,13 @@ def main():
 
 
 @cli.command()
-def example():
-    print("This is an example function")
+def create_area_intersection():
+    run_conversion()
+
+
+@cli.command()
+def convert_polling():
+    convert_all()
 
 
 if __name__ == "__main__":
