@@ -54,11 +54,11 @@ def convert_data_geographies(
     *,
     input_geography: ValidGeographies,
     output_geography: ValidGeographies,
+    overlap_measure: OverlapTypes = "population",
     input_code_col: str | None = None,
+    output_code_col: str | None = None,
     input_values_type: DataValues = "percentage",
     output_values_type: DataValues | None = None,
-    output_code_col: str | None = None,
-    overlap_measure: OverlapTypes = "population",
 ) -> pd.DataFrame:
     """
     Convert data from one geography to another.
@@ -132,17 +132,17 @@ def convert_data_geographies(
         for c in original_columns:
             df[c] = df[c] / df["original_pop"]
 
-    # at this point we have the original_columns, which are
-
     for c in original_columns:
         # taking our fractional values for the original geography we need to express
         # this as an absolute of the current fragment we are in
         df[c] = df[c].astype(float) * df[overlap_column]
         # this is now a unit of [original absolute unit] expected in this fragment
+        # assuming it was evenly distributed across either area/population
 
     # now we need to aggregate by the output geography
     # to get the total absolute unit for each output geography
-    # at the same time, we're aggregating the overlap column to get the total overlap
+    # at the same time, we're aggregating the overlap column
+    # to get the total new geography pop/area
 
     final = df.groupby(output_geography).agg("sum")
 
