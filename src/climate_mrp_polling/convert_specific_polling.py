@@ -1,6 +1,65 @@
 import pandas as pd
 from pathlib import Path
-from .convert_polling import convert_parl_polling_to_la
+from data_common.pandas import GovLayers
+from datetime import date
+from typing import Literal, Annotated
+from .convert_polling import convert_data_geographies
+
+PollingDataFrame = Annotated[
+    pd.DataFrame,
+    "Dataframe where first column is PCON2010, all other columns are percentage polling",
+]
+
+
+def convert_parl_polling_to_la(
+    polling_df: PollingDataFrame,
+    *,
+    overlap_measure: Literal["area", "population"] = "population",
+) -> pd.DataFrame:
+    """
+    Convert the polling data from constituency (2010 boundaries) to local authority (2023).
+    Includes generating the higher geographies.
+    """
+
+    councils_2023 = date(2023, 4, 2)
+
+    df = convert_data_geographies(
+        polling_df,
+        input_geography="PARL10",
+        input_code_col="PCON2010",
+        output_geography="LAD23",
+        output_code_col="gss-code",
+        input_values_type="percentage",
+        output_values_type="absolute",
+        overlap_measure=overlap_measure,
+    )
+
+    original_cols = list(df.columns)[1:]
+
+    final = GovLayers(df).create_code_column(
+        from_type="gss", source_col="gss-code", drop_source=True
+    )
+
+    final = GovLayers(final).get_council_info(
+        ["pop-2020"], include_historical=True, as_of_date=councils_2023
+    )
+
+    upper_layers = GovLayers(final).to_multiple_higher(aggfunc="sum")
+
+    # recombine the upper layers with the lower layers
+    final = pd.concat([upper_layers, final])
+
+    # calculate the percentages
+    for c in original_cols:
+        final[c] = final[c] / final["pop-2020"]
+
+    final = GovLayers(final).get_council_info(
+        ["official-name"], include_historical=True, as_of_date=councils_2023
+    )
+
+    final = final[["local-authority-code", "official-name"] + original_cols]
+
+    return final
 
 
 def sort_name(s: str) -> str:
