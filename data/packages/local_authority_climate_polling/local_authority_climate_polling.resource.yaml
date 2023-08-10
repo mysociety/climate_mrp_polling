@@ -43,5 +43,5 @@ schema:
     description: Percentage of people who agreed with question statement
     constraints:
       unique: false
-    example: 1.264268937181402e-05
-hash: c2eec4f8bc699a6a21271c88eb54e2d8
+    example: 1.2513365984620128e-05
+hash: f9123be07960702c0998285469b636be

@@ -1,6 +1,6 @@
 import pandas as pd
 from pathlib import Path
-from .convert_polling import convert_polling_from_con_to_la
+from .convert_polling import convert_parl_polling_to_la
 
 
 def sort_name(s: str) -> str:
@@ -57,7 +57,7 @@ def convert_renewable_uk():
     polling_df = polling_df / 100
     polling_df = polling_df.reset_index()
 
-    df = convert_polling_from_con_to_la(polling_df)
+    df = convert_parl_polling_to_la(polling_df)
 
     melted_df = df.melt(
         id_vars=["local-authority-code", "official-name"],
@@ -192,7 +192,7 @@ def convert_onward():
     # drop constituency name
     df = df.drop(columns=["Constituency"])
 
-    df = convert_polling_from_con_to_la(df)
+    df = convert_parl_polling_to_la(df)
 
     melted_df = df.melt(
         id_vars=["local-authority-code", "official-name"],
@@ -254,7 +254,3 @@ def convert_all():
     convert_onward()
     convert_onward_guide()
     join_files()
-
-
-if __name__ == "__main__":
-    convert_all()

@@ -10,7 +10,7 @@ licenses:
 - name: notspecified
   title: Not specified
 custom:
-  build:
+  build: "climate_mrp_polling.convert_specific_polling:convert_all"
   tests:
   - test_local_authority_climate_polling
   dataset_order: 0
