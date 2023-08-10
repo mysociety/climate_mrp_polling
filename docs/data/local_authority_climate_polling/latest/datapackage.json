@@ -2,7 +2,7 @@
     "name": "local_authority_climate_polling",
     "title": "Local authority climate polling",
     "description": "Reformatted MRP pollings for local authorities areas\n",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "contributors": [
         {
             "title": "mySociety",
@@ -17,7 +17,7 @@
         }
     ],
     "custom": {
-        "build": null,
+        "build": "climate_mrp_polling.convert_specific_polling:convert_all",
         "tests": [
             "test_local_authority_climate_polling"
         ],
@@ -49,7 +49,8 @@
             }
         },
         "change_log": {
-            "0.1.0": ""
+            "0.1.0": "",
+            "0.1.1": "Minor change in data for resource(s): local_authority_climate_polling,local_authority_climate_polling_guide"
         }
     },
     "resources": [
@@ -115,11 +116,11 @@
                         "constraints": {
                             "unique": false
                         },
-                        "example": 1.264268937181402e-05
+                        "example": 1.2513365984620128e-05
                     }
                 ]
             },
-            "hash": "c2eec4f8bc699a6a21271c88eb54e2d8"
+            "hash": "f9123be07960702c0998285469b636be"
         },
         {
             "title": "Local authority climate polling guide",
@@ -143,8 +144,8 @@
                         "constraints": {
                             "unique": false,
                             "enum": [
-                                "RenewableUK2022",
-                                "Onward2022"
+                                "Onward2022",
+                                "RenewableUK2022"
                             ]
                         },
                         "example": "Onward2022"
@@ -169,7 +170,7 @@
                     }
                 ]
             },
-            "hash": "42f49132370201c077cb5822b94e173a"
+            "hash": "37ec9941effde266e53ab7bd74a7c567"
         }
     ]
 }

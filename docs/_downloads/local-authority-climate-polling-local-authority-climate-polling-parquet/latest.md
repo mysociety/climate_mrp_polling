@@ -5,6 +5,6 @@ package: local_authority_climate_polling
 title: local_authority_climate_polling
 filename: local_authority_climate_polling.parquet
 version: latest
-full_version: 0.1.0
+full_version: 0.1.1
 file: /data/local_authority_climate_polling/latest/local_authority_climate_polling.parquet
 ---

@@ -1,0 +1,36 @@
+title: Local authority climate polling guide
+description: Map of questions to short keys used in polling
+custom:
+  row_count: 111
+path: local_authority_climate_polling_guide.csv
+name: local_authority_climate_polling_guide
+profile: tabular-data-resource
+scheme: file
+format: csv
+hashing: md5
+encoding: utf-8
+schema:
+  fields:
+  - name: source
+    type: string
+    description: Source of the polling
+    constraints:
+      unique: false
+      enum:
+      - Onward2022
+      - RenewableUK2022
+    example: Onward2022
+  - name: question
+    type: string
+    description: Full question text
+    constraints:
+      unique: true
+    example: "\"How seriously do you take the issue of climate change?\" -- Don't\
+      \ Know"
+  - name: short
+    type: string
+    description: Short key for the question
+    constraints:
+      unique: true
+    example: Q01_CON
+hash: 37ec9941effde266e53ab7bd74a7c567
