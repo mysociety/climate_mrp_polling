@@ -109,20 +109,20 @@ def convert_data_geographies(
     if df.columns[0] != input_code_col:
         raise ValueError(f"input geography {input_code_col} must be first column")
 
-    # fetch the
-    overlap_df = get_overlap_df(input_geography, output_geography)
-
-    original_columns = list(df.columns)[1:]
-    df = df.merge(
-        overlap_df, how="left", left_on=input_code_col, right_on=input_geography
-    )
-
     if overlap_measure == "population":
         overlap_column = "overlap_pop"
     elif overlap_measure == "area":
         overlap_column = "overlap_area"
     else:
         raise ValueError("overlap_measure must be either 'population' or 'area'")
+
+    # fetch the geography intersepction lookup file
+    overlap_df = get_overlap_df(input_geography, output_geography)
+
+    original_columns = list(df.columns)[1:]
+    df = df.merge(
+        overlap_df, how="left", left_on=input_code_col, right_on=input_geography
+    )
 
     if input_values_type == "absolute":
         # if we've been given raw people
