@@ -11,7 +11,7 @@ licenses:
 - name: notspecified
   title: Not specified
 custom:
-  build:
+  build: climate_mrp_polling.convert_specific_polling:convert_all
   tests:
   - test_local_authority_climate_polling
   dataset_order: 0
@@ -37,6 +37,7 @@ custom:
       render: true
   change_log:
     0.1.0: ''
+    0.1.1: 'Minor change in data for resource(s): local_authority_climate_polling,local_authority_climate_polling_guide'
 resources:
 - title: Local authority climate polling
   description: "Reformatted MRP pollings for local authorities areas\n"
@@ -83,8 +84,8 @@ resources:
       description: Percentage of people who agreed with question statement
       constraints:
         unique: false
-      example: 1.264268937181402e-05
-  hash: c2eec4f8bc699a6a21271c88eb54e2d8
+      example: 1.2513365984620128e-05
+  hash: f9123be07960702c0998285469b636be
 - title: Local authority climate polling guide
   description: Map of questions to short keys used in polling
   custom:
@@ -104,8 +105,8 @@ resources:
       constraints:
         unique: false
         enum:
-        - RenewableUK2022
         - Onward2022
+        - RenewableUK2022
       example: Onward2022
     - name: question
       type: string
@@ -120,7 +121,7 @@ resources:
       constraints:
         unique: true
       example: Q01_CON
-  hash: 42f49132370201c077cb5822b94e173a
-full_version: 0.1.0
+  hash: 37ec9941effde266e53ab7bd74a7c567
+full_version: 0.1.1
 permalink: /datasets/local_authority_climate_polling/latest
 ---

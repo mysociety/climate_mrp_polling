@@ -1,7 +1,7 @@
 name: local_authority_climate_polling
 title: Local authority climate polling
 description: "Reformatted MRP pollings for local authorities areas\n"
-version: 0.1.0
+version: 0.1.1
 contributors:
 - title: mySociety
   path: https://mysociety.org
@@ -10,7 +10,7 @@ licenses:
 - name: notspecified
   title: Not specified
 custom:
-  build: "climate_mrp_polling.convert_specific_polling:convert_all"
+  build: climate_mrp_polling.convert_specific_polling:convert_all
   tests:
   - test_local_authority_climate_polling
   dataset_order: 0
@@ -36,3 +36,4 @@ custom:
       render: true
   change_log:
     0.1.0: ''
+    0.1.1: 'Minor change in data for resource(s): local_authority_climate_polling,local_authority_climate_polling_guide'
